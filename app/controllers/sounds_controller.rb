@@ -6,13 +6,13 @@ class SoundsController < ApplicationController
 
   def create
     file = Sound.create
-    file.upload_file(params).save
+    file.upload_file(sound_params).save
     render json: '{message: "Created! Thanks!"}'
   end
 
   def update
     sound = sound.find(params[:id])
-    sound.upload_file(params)
+    sound.upload_file(sound_params)
     render json: '{message: "Created! Thanks!"}'
   end
 
