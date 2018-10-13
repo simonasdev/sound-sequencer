@@ -1,6 +1,6 @@
 class SoundsController < ApplicationController
   def index
-    sounds = Sound.all
+    sounds = Sound.listing
     render json: SoundSerializer.new(sounds)
   end
 
@@ -16,12 +16,14 @@ class SoundsController < ApplicationController
   def update
     sound = Sound.find(params[:id])
     sound.update(sound_params)
+
     head :no_content
   end
 
   def destroy
     sound = Sound.find(params[:id])
     sound.destroy
+
     head :no_content
   end
 
