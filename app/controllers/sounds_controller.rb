@@ -11,8 +11,8 @@ class SoundsController < ApplicationController
   end
 
   def update
-    sound = sound.find(params[:id])
-    sound.upload_file(sound_params)
+    sound = Sound.find(params[:id])
+    sound.update(sound_params)
     head :no_content
   end
 
