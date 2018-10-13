@@ -1,7 +1,7 @@
 class SoundsController < ApplicationController
   def index
     sounds = Sound.all
-    render json:
+    render json: SoundSerializer.new(sounds)
   end
 
   def create
