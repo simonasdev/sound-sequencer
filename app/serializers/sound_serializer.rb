@@ -4,6 +4,6 @@ class SoundSerializer
   attributes :id, :data
 
   attribute :image_url do |object|
-    Rails.application.routes.url_helpers.url_for(object.file) if object.file
+    Rails.application.routes.url_helpers.url_for(object.file) if object.file.attached?
   end
 end
