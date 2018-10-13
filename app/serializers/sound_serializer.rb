@@ -1,4 +1,4 @@
 class SoundSerializer
   include FastJsonapi::ObjectSerializer
-  attributes 
+  attributes :data
 end
