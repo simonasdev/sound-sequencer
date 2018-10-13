@@ -24,7 +24,7 @@ Rails.application.configure do
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   config.action_controller.asset_host = ENV['HOST_DOMAIN'] || 'localhost:3000'
-  config.default_url_options = {
+  Rails.application.routes.default_url_options = {
     host: config.action_controller.asset_host
   }
 
