@@ -7,7 +7,7 @@ class SoundsController < ApplicationController
   def create
     ApplicationRecord.transaction do
       file = Sound.create
-      file.upload_file(sound_params)
+      file.upload_file(**sound_params.symbolize_keys)
     end
 
     head :created
