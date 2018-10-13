@@ -1,24 +1,29 @@
 class SoundsController < ApplicationController
   def index
-    sounds = Sound.all
+    sounds = Sound.listing
     render json: SoundSerializer.new(sounds)
   end
 
   def create
-    file = Sound.create
-    file.upload_file(sound_params)
+    ApplicationRecord.transaction do
+      file = Sound.create
+      file.upload_file(sound_params)
+    end
+
     head :created
   end
 
   def update
-    sound = sound.find(params[:id])
-    sound.upload_file(sound_params)
+    sound = Sound.find(params[:id])
+    sound.update(sound_params)
+
     head :no_content
   end
 
   def destroy
     sound = Sound.find(params[:id])
     sound.destroy
+
     head :no_content
   end
 

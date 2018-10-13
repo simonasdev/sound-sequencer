@@ -1,4 +1,9 @@
 class SoundSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :data, :image_url
+
+  attributes :data
+
+  attribute :image_url do |object|
+    Rails.application.routes.url_helpers.url_for(object.file) if object.file.attached?
+  end
 end
