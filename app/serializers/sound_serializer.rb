@@ -1,4 +1,8 @@
 class SoundSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :data
+  attributes :data, :image_url
+
+  def image_url
+    file.service_url
+  end
 end
