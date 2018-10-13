@@ -4,7 +4,7 @@ class SoundSerializer
 
   attributes :id, :data
 
-  attribute :image_url do
-    url_for(file) if file
+  attribute :image_url do |object|
+    url_for(object.file) if object.file
   end
 end
