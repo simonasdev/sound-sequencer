@@ -40,5 +40,11 @@ module SoundSequencer
         resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options]
       end
     end
+
+    config.filter_parameters << lambda do |k, v|
+      if k == 'data' && v && v.class == String && v.length > 1024
+        v.replace('[FILTER]')
+      end
+    end
   end
 end
