@@ -11,5 +11,4 @@ class Sound < ApplicationRecord
       )
     )
   end
-
 end
