@@ -30,6 +30,7 @@ Rails.application.configure do
   config.action_controller.default_url_options = {
     host: config.action_controller.asset_host
   }
+  Rails.application.routes.default_url_options[:host] = config.action_controller.asset_host
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
