@@ -5,18 +5,15 @@ class SoundsController < ApplicationController
   end
 
   def create
-    Sound.upload_file(:params)
+    file = Sound.create
+    file.upload_file(params).save
     render json: '{message: "Created! Thanks!"}'
   end
 
-  def edit
-    sound = Sound.find(params[:id])
-    render json: SoundSerializer.new(sound)
-  end
-
   def update
-    sound = Sound.upload_file(params)
-    # sound.update(params)  Not sure how do we update and what params we receive
+    sound = sound.find(params[:id])
+    sound.upload_file(params)
+    render json: '{message: "Created! Thanks!"}'
   end
 
   def destroy
