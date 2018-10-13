@@ -3,9 +3,8 @@ class SoundSerializer
   include Rails.application.routes.url_helpers
 
   attributes :id, :data
-  attribute :image_url
 
-  def image_url
+  attribute :image_url do
     url_for(file) if file
   end
 end
