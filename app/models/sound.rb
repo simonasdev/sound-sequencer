@@ -9,9 +9,9 @@ class Sound < ApplicationRecord
         io: DataStringIO.new(params[:filename], params[:content_type], decoded)
       )
     file.attach(
-      **params.symbolize_keys.slice(:filename, :content_type).merge(
+      **params.slice(:filename, :content_type).merge(
         io: DataStringIO.new(params[:filename], params[:content_type], decoded)
-      )
+      ).symbolize_keys
     )
   end
 end
