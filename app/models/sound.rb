@@ -10,8 +10,4 @@ class Sound < ApplicationRecord
       )
     )
   end
-
-  def image_url
-    file.service_url
-  end
 end
