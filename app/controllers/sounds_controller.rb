@@ -6,7 +6,7 @@ class SoundsController < ApplicationController
 
   def create
     file = Sound.create
-    file.upload_file(sound_params).save
+    file.upload_file(sound_params)
     render json: '{message: "Created! Thanks!"}'
   end
 
