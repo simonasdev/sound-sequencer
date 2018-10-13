@@ -6,6 +6,6 @@ class SoundSerializer
   attribute :image_url
 
   def image_url
-    url_for file
+    url_for(file) if file
   end
 end
