@@ -5,8 +5,11 @@ class SoundsController < ApplicationController
   end
 
   def create
-    file = Sound.create
-    file.upload_file(sound_params)
+    ApplicationRecord.transaction do
+      file = Sound.create
+      file.upload_file(sound_params)
+    end
+
     head :created
   end
 
