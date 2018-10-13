@@ -24,13 +24,9 @@ Rails.application.configure do
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   config.action_controller.asset_host = ENV['HOST'] || 'localhost:3000'
-  config.action_mailer.default_url_options = {
+  config.default_url_options = {
     host: config.action_controller.asset_host
   }
-  config.action_controller.default_url_options = {
-    host: config.action_controller.asset_host
-  }
-  Rails.application.routes.default_url_options[:host] = config.action_controller.asset_host
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
