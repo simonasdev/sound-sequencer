@@ -7,19 +7,19 @@ class SoundsController < ApplicationController
   def create
     file = Sound.create
     file.upload_file(sound_params)
-    render json: '{message: "Created! Thanks!"}'
+    head :created
   end
 
   def update
     sound = sound.find(params[:id])
     sound.upload_file(sound_params)
-    render json: '{message: "Created! Thanks!"}'
+    head :no_content
   end
 
   def destroy
     sound = Sound.find(params[:id])
     sound.destroy
-    render json: '{message: "Deleted!"}'
+    head :no_content
   end
 
   private
